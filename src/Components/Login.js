@@ -59,7 +59,7 @@ class Login extends Component{
                         localStorage.setItem('useremailid',this.state.username);
                         localStorage.setItem('Loginsuccess',true); 
                         
-                        window.location='/Register';
+                        window.location='/Dashboard';
                        
                         
                     }else{

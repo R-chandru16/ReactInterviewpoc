@@ -5,6 +5,8 @@ import Register from './Components/Register';
 
 import pic from "./images/layout.png";
 import Login from './Components/Login';
+import Dashboard from './Components/Dashboard';
+
 import { useState } from 'react';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -67,6 +69,8 @@ function App() {
       <Route path="/create" element={<Register/>}></Route>
      
       <Route path='/' element={<Login/>}></Route>
+
+      <Route path='/Dashboard' element={<Dashboard/>}></Route>
       
      </Routes>
        

@@ -13,7 +13,7 @@ class Register extends Component{
             password:'',
            
             confirmpassword:'',
-            Role:'',
+            Rolename:'',
             errors:{}   
         }
 
@@ -21,7 +21,7 @@ class Register extends Component{
       
         this.password=this.password.bind(this);
         this.confirmpassword=this.confirmpassword.bind(this);
-        this.Role=this.Role.bind(this);
+        this.Rolename=this.Rolename.bind(this);
         this.saveEmployee=this.saveEmployee.bind(this);
     } 
     
@@ -55,12 +55,12 @@ class Register extends Component{
         let employee={username:this.state.username,
                     
                       password:this.state.password,
-                      Role:this.state.Role,
+                      Rolename:this.state.Rolename,
                     };
                     console.log('employee=>'+JSON.stringify(employee));
 
                     EmployeeService.Register(employee).then(res=>{
-                        window.location="/Login";
+                        window.location="/";
                         localStorage.setItem('Resgisterstatus',true);
                         
                         
@@ -80,8 +80,8 @@ class Register extends Component{
      confirmpassword=(event)=>{
         this.setState({confirmpassword:event.target.value});
      }
-     Role=(event)=>{
-        this.setState({Role:event.target.value});
+     Rolename=(event)=>{
+        this.setState({Rolename:event.target.value});
      }
      cancel(){
         window.location="/Login";
@@ -104,14 +104,14 @@ class Register extends Component{
                 <label id="confirmpassword">Confirm Password</label>
                 <input  id="confirmpassword" type="password"  name="confirmpassword" onChange={(e)=>this.confirmpassword(e)}></input><br></br>
                 <div className="errorMsg">{this.state.errors.confirmpassword}</div>
-                <label id="Role" >Role</label>
-                <select>
+                <label id="Rolename" >Rolename</label>
+                <select onChange={(e)=>this.Rolename(e)} name="Rolename">
                     
                       
-                      <option value=''>HR</option>
-                      <option value=''>Recruiter</option>
+                      <option value='HR'>HR</option>
+                      <option value='Recruitor'>Recruiter</option>
                 </select><br></br>
-                <div className="errorMsg">{this.state.errors.Role}</div>
+                <div className="errorMsg">{this.state.errors.Rolename}</div>
                 <button className="btn btn-warning buttonc" onClick={this.saveEmployee}>Create</button>
                 <Link to={'/'}><button className="btn btn-primary butc" type="submit" onClick={()=>{window.location='/viewemployee'}}>Back</button>
             </Link> 
